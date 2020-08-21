@@ -1,2 +1,2 @@
 # PlatziVideo
-### En esta rama está cargada la maquetacion del proyecto Platzi Video hecho en el curso de FrontEnd, esta realizado en HTML y CSS
+### En esta rama está cargada la maquetación del proyecto Platzi Video del curso de FrontEnd, usamos HTML y CSS
