@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { connect } from 'react-redux';
 import Search from '../components/Search';
@@ -13,17 +14,16 @@ const Home = ({ myList, trends, originals }) => {
       {myList?.length > 0 && (
         <Categories title='Mi lista'>
           <Carousel>
-            {mylist?.map((item) => (
-              <CarouselItem key={item.id} {...item} />
+            {myList.map((item) => (
+              <CarouselItem key={`${item.id}_mylist`} {...item} />
             ))}
-            <CarouselItem />
           </Carousel>
         </Categories>
       )}
 
       <Categories title='Tendencias'>
         <Carousel>
-          {trends?.map((item) => (
+          {trends.map((item) => (
             <CarouselItem key={item.id} {...item} />
           ))}
         </Carousel>
@@ -31,7 +31,7 @@ const Home = ({ myList, trends, originals }) => {
 
       <Categories title='Originales de Platzi Video'>
         <Carousel>
-          {originals?.map((item) => (
+          {originals.map((item) => (
             <CarouselItem key={item.id} {...item} />
           ))}
         </Carousel>
