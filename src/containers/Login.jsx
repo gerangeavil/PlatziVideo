@@ -23,7 +23,6 @@ const Login = (props) => {
     event.preventDefault();
     props.loginRequest(form);
     props.history.push('/');
-    console.log(form);
   };
 
   return (
