@@ -1,9 +1,10 @@
+/* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
+/* eslint-disable no-case-declarations */
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_FAVORITE':
-      // eslint-disable-next-line no-case-declarations
       const item = state.myList.find((list) => list.id === action.payload.id);
       if (item) return state;
       return {
@@ -33,14 +34,19 @@ const reducer = (state, action) => {
     case 'GET_VIDEO_SOURCE':
       return {
         ...state,
-        /*playing:
-          state.trends
-            .concat(state.originals)
-            .find((item) => item.id === Number(action.payload)) || [],*/
         playing:
           state.trends.find((item) => item.id === Number(action.payload)) ||
           state.originals.find((item) => item.id === Number(action.payload)) ||
           [],
+      };
+    case 'GET_VIDEO_SEARCH':
+      if (action.payload === '') return { ...state, searchResul: [] };
+      const listas = [...state.trends, ...state.originals];
+      return {
+        ...state,
+        searchResult: listas.filter((item) =>
+          item.title.toLowerCase().includes(action.payload.toLowerCase())
+        ),
       };
     default:
       return state;
